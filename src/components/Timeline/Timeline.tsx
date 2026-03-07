@@ -61,7 +61,7 @@ export default function Timeline() {
     const lineWrap = section.querySelector<HTMLElement>(".tl-line-wrap")!
     const lineH    = lineWrap.offsetHeight
 
-    items.forEach((item, i) => {
+    items.forEach((item) => {
       const icon     = item.querySelector<HTMLElement>(".tl-icon-wrap")!
       const ring     = item.querySelector<HTMLElement>(".tl-ring")!
       const content  = item.querySelector<HTMLElement>(".tl-content-card")!
