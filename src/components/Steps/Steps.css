@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500&display=swap');
+
+:root {
+  --cyan:    #00f2ff;
+  --magenta: #cc00ff;
+  --mid:     #7b5cff;
+  --bg:      #0e0b1e;
+  --surface: rgba(255,255,255,0.04);
+  --border:  rgba(255,255,255,0.07);
+  --text:    #f0eeff;
+  --muted:   #7d77a8;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ─── SECTION ───────────────────────────────── */
+.sp-section {
+  background: var(--bg);
+  padding: 100px 24px 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Bottom ambient glow */
+.sp-section::before {
+  content: '';
+  position: absolute;
+  bottom: -100px; right: 10%;
+  width: 500px; height: 500px;
+  background: radial-gradient(ellipse, rgba(204,0,255,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ─── LABEL ─────────────────────────────────── */
+.sp-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.sp-label-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 8px var(--cyan);
+  animation: dot-pulse 2s ease-in-out infinite;
+}
+
+@keyframes dot-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+
+/* ─── HEADING ───────────────────────────────── */
+.sp-heading {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(1.55rem, 4vw, 2.3rem);
+  font-weight: 800;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 0.7rem;
+  letter-spacing: -0.035em;
+  line-height: 1.18;
+  position: relative;
+  z-index: 1;
+}
+
+.sp-heading-grad {
+  background: linear-gradient(90deg, var(--cyan), var(--magenta));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sp-subheading {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.65;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── GRID ──────────────────────────────────── */
+.sp-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 960px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .sp-grid {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0; /* connector bridges the gap */
+  }
+}
+
+/* ─── CARD ──────────────────────────────────── */
+.sp-card {
+  position: relative;
+  flex: 1;
+  padding: 28px 24px 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  opacity: 0; /* GSAP reveals */
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.sp-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Accent variants — top border glow */
+.sp-card[data-accent="cyan"] {
+  border-top: 2px solid rgba(0, 242, 255, 0.4);
+}
+.sp-card[data-accent="cyan"]:hover {
+  box-shadow: 0 0 32px rgba(0,242,255,0.12), 0 8px 32px rgba(0,0,0,0.3);
+  border-color: rgba(0,242,255,0.5);
+}
+
+.sp-card[data-accent="mid"] {
+  border-top: 2px solid rgba(123,92,255,0.5);
+}
+.sp-card[data-accent="mid"]:hover {
+  box-shadow: 0 0 32px rgba(123,92,255,0.15), 0 8px 32px rgba(0,0,0,0.3);
+  border-color: rgba(123,92,255,0.5);
+}
+
+.sp-card[data-accent="magenta"] {
+  border-top: 2px solid rgba(204,0,255,0.4);
+}
+.sp-card[data-accent="magenta"]:hover {
+  box-shadow: 0 0 32px rgba(204,0,255,0.12), 0 8px 32px rgba(0,0,0,0.3);
+  border-color: rgba(204,0,255,0.5);
+}
+
+/* Corner gradient tint per accent */
+.sp-card[data-accent="cyan"]::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100px; height: 100px;
+  background: radial-gradient(circle at top left, rgba(0,242,255,0.1), transparent 70%);
+  pointer-events: none;
+}
+.sp-card[data-accent="mid"]::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 120px; height: 100px;
+  background: radial-gradient(circle at top center, rgba(123,92,255,0.12), transparent 70%);
+  pointer-events: none;
+}
+.sp-card[data-accent="magenta"]::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 100px; height: 100px;
+  background: radial-gradient(circle at top right, rgba(204,0,255,0.1), transparent 70%);
+  pointer-events: none;
+}
+
+/* ─── BIG NUMBER WATERMARK ──────────────────── */
+.sp-num-bg {
+  position: absolute;
+  bottom: -16px; right: 12px;
+  font-family: 'Sora', sans-serif;
+  font-size: 7rem;
+  font-weight: 800;
+  color: rgba(255,255,255,0.025);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.05em;
+}
+
+/* ─── TOP ROW ───────────────────────────────── */
+.sp-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Small number chip */
+.sp-num {
+  font-family: 'Sora', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 3px 10px;
+  opacity: 0; /* GSAP reveals */
+}
+
+/* Icon box */
+.sp-icon-box {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  opacity: 0; /* GSAP reveals */
+}
+
+.sp-card[data-accent="cyan"]   .sp-icon-box { border-color: rgba(0,242,255,0.2); }
+.sp-card[data-accent="mid"]    .sp-icon-box { border-color: rgba(123,92,255,0.25); }
+.sp-card[data-accent="magenta"].sp-icon-box { border-color: rgba(204,0,255,0.2); }
+
+.sp-icon-img {
+  width: 26px; height: 26px;
+  object-fit: contain;
+  filter: brightness(1.2) saturate(0.8);
+}
+
+/* ─── TAG ───────────────────────────────────── */
+.sp-tag {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.63rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 100px;
+  padding: 2px 9px;
+  margin-bottom: 8px;
+  opacity: 0; /* GSAP */
+}
+
+.sp-card[data-accent="cyan"]    .sp-tag {
+  color: var(--cyan);
+  background: rgba(0,242,255,0.08);
+  border: 1px solid rgba(0,242,255,0.18);
+}
+.sp-card[data-accent="mid"]     .sp-tag {
+  color: var(--mid);
+  background: rgba(123,92,255,0.1);
+  border: 1px solid rgba(123,92,255,0.22);
+}
+.sp-card[data-accent="magenta"] .sp-tag {
+  color: var(--magenta);
+  background: rgba(204,0,255,0.08);
+  border: 1px solid rgba(204,0,255,0.2);
+}
+
+/* ─── TEXT ──────────────────────────────────── */
+.sp-card h3 {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  opacity: 0; /* GSAP */
+}
+
+.sp-card p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.83rem;
+  line-height: 1.65;
+  color: var(--muted);
+  opacity: 0; /* GSAP */
+}
+
+/* ─── CONNECTOR ARROW (desktop only) ───────── */
+.sp-connector {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .sp-connector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: -22px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 20px;
+    color: rgba(255,255,255,0.2);
+    z-index: 10;
+    transform-origin: left center;
+    opacity: 0; /* GSAP */
+  }
+
+  .sp-connector svg {
+    width: 40px;
+    height: 12px;
+  }
+
+  /* Cards get some horizontal gap on desktop to show connectors */
+  .sp-grid {
+    gap: 20px;
+  }
+}

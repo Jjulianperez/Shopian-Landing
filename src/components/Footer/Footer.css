@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500&display=swap');
+
+:root {
+  --cyan:    #00f2ff;
+  --magenta: #cc00ff;
+  --bg:      #0a0817;
+  --border:  rgba(255,255,255,0.07);
+  --text:    #f0eeff;
+  --muted:   #7d77a8;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ─── FOOTER ────────────────────────────────── */
+.ft-footer {
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top rainbow glow line — matches reference */
+.ft-glow-line {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0,242,255,0.6) 25%,
+    rgba(130,80,255,0.7) 50%,
+    rgba(204,0,255,0.6) 75%,
+    transparent 100%
+  );
+}
+
+/* ─── INNER ─────────────────────────────────── */
+.ft-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  padding: 40px 24px 28px;
+}
+
+@media (min-width: 640px) {
+  .ft-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 32px 40px 24px;
+  }
+}
+
+/* ─── LEFT: Shopian logo ────────────────────── */
+.ft-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.ft-logo-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.ft-logo-text {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--cyan);
+
+  /* Neon text glow matching reference */
+  text-shadow:
+    0 0 8px  rgba(0,242,255,0.9),
+    0 0 20px rgba(0,242,255,0.6),
+    0 0 40px rgba(0,242,255,0.3);
+
+  /* Subtle underline in magenta like reference */
+  border-bottom: 2px solid var(--magenta);
+  padding-bottom: 2px;
+}
+
+/* ─── CENTER ────────────────────────────────── */
+.ft-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.ft-tagline {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+/* ─── SOCIAL ────────────────────────────────── */
+.ft-social {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ft-social-btn {
+  display: grid;
+  place-items: center;
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  color: var(--muted);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  transition: color 0.22s, background 0.22s, border-color 0.22s, transform 0.22s, box-shadow 0.22s;
+}
+
+.ft-social-btn svg {
+  width: 15px; height: 15px;
+  flex-shrink: 0;
+}
+
+.ft-social-btn:hover {
+  color: var(--cyan);
+  background: rgba(0,242,255,0.08);
+  border-color: rgba(0,242,255,0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px rgba(0,242,255,0.25);
+}
+
+/* ─── RIGHT: Softian Solutions ─────────────── */
+.ft-softian {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* Diamond/star icon matching the reference */
+.ft-softian-icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(0,242,255,0.15), rgba(204,0,255,0.15));
+  border: 1px solid rgba(255,255,255,0.12);
+  display: grid;
+  place-items: center;
+  font-family: 'Sora', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--text);
+  box-shadow: 0 0 12px rgba(0,242,255,0.1);
+}
+
+.ft-softian-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.ft-softian-name {
+  font-family: 'Sora', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.ft-softian-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ─── BOTTOM BAR ────────────────────────────── */
+.ft-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px 10px;
+  padding: 14px 24px 20px;
+  border-top: 1px solid var(--border);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  color: #4e4970;
+}
+
+.ft-bottom-sep {
+  opacity: 0.4;
+}
+
+.ft-bottom-link {
+  color: #5e5888;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.ft-bottom-link:hover {
+  color: var(--cyan);
+}
