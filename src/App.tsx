@@ -7,6 +7,7 @@ import Cards from "./components/Cards/Cards"
 import Steps from "./components/Steps/Steps"
 import CTA from "./components/CTA/CTA"
 import Footer from "./components/Footer/Footer"
+import Login from "./pages/Signup/Login"
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <CTA/>
 
       <Footer/>
+      <Login/>
     </div>
 
   )
