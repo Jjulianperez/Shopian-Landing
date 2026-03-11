@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap');
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -14,6 +14,7 @@
 
   --cyan: #00f2ff;
   --magenta: #cc00ff;
+  --mid: #7b5cff;
 
   --text: #f0eeff;
   --muted: #9d97c0;
@@ -22,8 +23,30 @@
   --grad: linear-gradient(135deg, var(--cyan), var(--magenta));
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--bg);
   color: var(--text);
   font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+button {
+  touch-action: manipulation;
+  font-family: inherit;
+}
+
+a {
+  touch-action: manipulation;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }

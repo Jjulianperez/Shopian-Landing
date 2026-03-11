@@ -195,7 +195,7 @@ export default function Timeline() {
                 <div className="tl-glow-burst" />
 
                 <div className="tl-icon-wrap">
-                  <img src={f.img} alt={f.title} className="tl-icon-img" />
+                  <img src={f.img} alt={f.title} className="tl-icon-img" loading="lazy" />
                 </div>
 
                 <span className="tl-step-num">{f.step}</span>

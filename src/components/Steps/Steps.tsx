@@ -131,7 +131,7 @@ export default function Steps() {
             <div className="sp-top">
               <span className="sp-num">{step.number}</span>
               <div className="sp-icon-box">
-                <img src={step.icon} alt={step.title} className="sp-icon-img" />
+                <img src={step.icon} alt={step.title} className="sp-icon-img" loading="lazy" />
               </div>
             </div>
 

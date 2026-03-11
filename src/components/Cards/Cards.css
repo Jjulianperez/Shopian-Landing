@@ -1,38 +1,104 @@
-.features{
-  padding:2rem 1.5rem;
+.features {
+  padding: 2rem 1.5rem 3rem;
 }
 
-.features-label{
-  text-align:center;
-  color:var(--muted);
-  margin-bottom:2rem;
+.features-inner {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.features-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:1rem;
+.features-label {
+  text-align: center;
+  color: var(--muted);
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
 }
 
-.feature-col{
-  background:var(--bg2);
-  padding:1.5rem;
-  border-radius:var(--radius);
-  border:1px solid var(--border);
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
 
-.feature-col h3{
-  margin-bottom:1rem;
-  font-family:'Sora';
+.feature-col {
+  background: var(--bg2);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.feature-col ul{
-  list-style:none;
-  display:flex;
-  flex-direction:column;
-  gap:.5rem;
+.feature-col:hover {
+  border-color: rgba(0,242,255,0.2);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
 }
 
-.feature-col li{
-  color:var(--muted);
+.feature-col h3 {
+  margin-bottom: 1rem;
+  font-family: 'Sora', sans-serif;
+  font-size: 1rem;
+}
+
+.feature-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+
+.feature-col li {
+  color: var(--muted);
+  font-size: 0.88rem;
+  padding-left: 0.5rem;
+  position: relative;
+}
+
+.feature-col li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--cyan);
+  opacity: 0.6;
+}
+
+/* ─── MOBILE: small screens go single col ──── */
+@media (max-width: 400px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── DESKTOP ────────────────────────────────── */
+@media (min-width: 768px) {
+  .features {
+    padding: 4rem 2rem 5rem;
+  }
+
+  .features-grid {
+    gap: 1.5rem;
+  }
+
+  .feature-col {
+    padding: 2rem 2rem;
+  }
+
+  .feature-col h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .feature-col li {
+    font-size: 0.92rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .features {
+    padding: 5rem 3rem 6rem;
+  }
+
+  .features-inner {
+    max-width: 1000px;
+  }
 }

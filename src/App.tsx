@@ -12,7 +12,7 @@ import Login from "./pages/Signup/Login"
 function App() {
   return (
 
-    <div style={{maxWidth:430, margin:"0 auto"}}>
+    <div>
 
       <Navbar/>
 

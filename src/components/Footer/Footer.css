@@ -1,24 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500&display=swap');
-
-:root {
-  --cyan:    #00f2ff;
-  --magenta: #cc00ff;
-  --bg:      #0a0817;
-  --border:  rgba(255,255,255,0.07);
-  --text:    #f0eeff;
-  --muted:   #7d77a8;
-}
-
-*, *::before, *::after { box-sizing: border-box; }
-
 /* ─── FOOTER ────────────────────────────────── */
 .ft-footer {
-  background: var(--bg);
+  background: #0a0817;
   position: relative;
   overflow: hidden;
 }
 
-/* Top rainbow glow line — matches reference */
+/* Top rainbow glow line */
 .ft-glow-line {
   position: absolute;
   top: 0; left: 0; right: 0;
@@ -48,7 +35,16 @@
     justify-content: space-between;
     align-items: center;
     gap: 16px;
-    padding: 32px 40px 24px;
+    padding: 36px 40px 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ft-inner {
+    padding: 40px 60px 32px;
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
   }
 }
 
@@ -58,6 +54,7 @@
   align-items: center;
   gap: 8px;
   flex-shrink: 0;
+  cursor: pointer;
 }
 
 .ft-logo-icon {
@@ -70,16 +67,14 @@
   font-size: 1.45rem;
   font-weight: 800;
   letter-spacing: -0.02em;
-  color: var(--cyan);
+  color: #00f2ff;
 
-  /* Neon text glow matching reference */
   text-shadow:
     0 0 8px  rgba(0,242,255,0.9),
     0 0 20px rgba(0,242,255,0.6),
     0 0 40px rgba(0,242,255,0.3);
 
-  /* Subtle underline in magenta like reference */
-  border-bottom: 2px solid var(--magenta);
+  border-bottom: 2px solid #cc00ff;
   padding-bottom: 2px;
 }
 
@@ -95,7 +90,7 @@
 .ft-tagline {
   font-family: 'DM Sans', sans-serif;
   font-size: 0.82rem;
-  color: var(--muted);
+  color: #7d77a8;
   letter-spacing: 0.01em;
   white-space: nowrap;
 }
@@ -110,11 +105,11 @@
 .ft-social-btn {
   display: grid;
   place-items: center;
-  width: 34px; height: 34px;
+  width: 36px; height: 36px;
   border-radius: 50%;
-  color: var(--muted);
+  color: #7d77a8;
   background: rgba(255,255,255,0.04);
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255,255,255,0.07);
   text-decoration: none;
   transition: color 0.22s, background 0.22s, border-color 0.22s, transform 0.22s, box-shadow 0.22s;
 }
@@ -125,7 +120,7 @@
 }
 
 .ft-social-btn:hover {
-  color: var(--cyan);
+  color: #00f2ff;
   background: rgba(0,242,255,0.08);
   border-color: rgba(0,242,255,0.35);
   transform: translateY(-2px);
@@ -140,7 +135,6 @@
   flex-shrink: 0;
 }
 
-/* Diamond/star icon matching the reference */
 .ft-softian-icon {
   width: 36px; height: 36px;
   border-radius: 10px;
@@ -151,7 +145,7 @@
   font-family: 'Sora', sans-serif;
   font-size: 0.9rem;
   font-weight: 800;
-  color: var(--text);
+  color: #f0eeff;
   box-shadow: 0 0 12px rgba(0,242,255,0.1);
 }
 
@@ -165,7 +159,7 @@
   font-family: 'Sora', sans-serif;
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--text);
+  color: #f0eeff;
   letter-spacing: -0.01em;
 }
 
@@ -175,7 +169,7 @@
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: #7d77a8;
 }
 
 /* ─── BOTTOM BAR ────────────────────────────── */
@@ -186,7 +180,7 @@
   justify-content: center;
   gap: 6px 10px;
   padding: 14px 24px 20px;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255,255,255,0.07);
   font-family: 'DM Sans', sans-serif;
   font-size: 0.7rem;
   color: #4e4970;
@@ -203,5 +197,5 @@
 }
 
 .ft-bottom-link:hover {
-  color: var(--cyan);
+  color: #00f2ff;
 }

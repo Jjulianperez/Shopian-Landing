@@ -3,6 +3,7 @@ import "./Cards.css";
 export default function Cards() {
   return (
     <section className="features">
+      <div className="features-inner">
 
       <p className="features-label">¿Por qué Shopian?</p>
 
@@ -34,6 +35,7 @@ export default function Cards() {
 
       </div>
 
+      </div>
     </section>
   );
 }

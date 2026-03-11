@@ -1,22 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500&display=swap');
-
-:root {
-  --cyan:    #00f2ff;
-  --magenta: #cc00ff;
-  --mid:     #7b5cff;
-  --bg:      #0e0b1e;
-  --surface: rgba(255,255,255,0.04);
-  --border:  rgba(255,255,255,0.07);
-  --text:    #f0eeff;
-  --muted:   #7d77a8;
-}
-
-*, *::before, *::after { box-sizing: border-box; }
-
 /* ─── SECTION ───────────────────────────────── */
 .sp-section {
   background: var(--bg);
-  padding: 100px 24px 120px;
+  padding: 80px 24px 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -66,7 +51,7 @@
 /* ─── HEADING ───────────────────────────────── */
 .sp-heading {
   font-family: 'Sora', sans-serif;
-  font-size: clamp(1.55rem, 4vw, 2.3rem);
+  font-size: clamp(1.55rem, 4vw, 2.5rem);
   font-weight: 800;
   color: var(--text);
   text-align: center;
@@ -75,6 +60,7 @@
   line-height: 1.18;
   position: relative;
   z-index: 1;
+  max-width: 600px;
 }
 
 .sp-heading-grad {
@@ -90,9 +76,10 @@
   color: var(--muted);
   text-align: center;
   line-height: 1.65;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
   position: relative;
   z-index: 1;
+  max-width: 480px;
 }
 
 /* ─── GRID ──────────────────────────────────── */
@@ -110,7 +97,7 @@
   .sp-grid {
     flex-direction: row;
     align-items: stretch;
-    gap: 0; /* connector bridges the gap */
+    gap: 20px;
   }
 }
 
@@ -235,7 +222,7 @@
 .sp-card[data-accent="magenta"].sp-icon-box { border-color: rgba(204,0,255,0.2); }
 
 .sp-icon-img {
-  width: 26px; height: 26px;
+  width: 28px; height: 28px;
   object-fit: contain;
   filter: brightness(1.2) saturate(0.8);
 }
@@ -295,7 +282,16 @@
   display: none;
 }
 
+/* ─── DESKTOP ────────────────────────────────── */
 @media (min-width: 768px) {
+  .sp-section {
+    padding: 100px 32px 120px;
+  }
+
+  .sp-subheading {
+    margin-bottom: 60px;
+  }
+
   .sp-connector {
     display: flex;
     align-items: center;
@@ -316,9 +312,35 @@
     width: 40px;
     height: 12px;
   }
+}
 
-  /* Cards get some horizontal gap on desktop to show connectors */
+@media (min-width: 1024px) {
+  .sp-section {
+    padding: 110px 3rem 130px;
+  }
+
+  .sp-card {
+    padding: 32px 28px 36px;
+  }
+
+  .sp-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+  }
+
+  .sp-card p {
+    font-size: 0.88rem;
+  }
+
+  .sp-icon-box {
+    width: 58px; height: 58px;
+  }
+
+  .sp-icon-img {
+    width: 32px; height: 32px;
+  }
+
   .sp-grid {
-    gap: 20px;
+    max-width: 1100px;
   }
 }

@@ -1,22 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500&display=swap');
-
-:root {
-  --cyan:    #00f2ff;
-  --magenta: #cc00ff;
-  --bg:      #0e0b1e;
-  --surface: rgba(255,255,255,0.04);
-  --border:  rgba(255,255,255,0.08);
-  --text:    #f0eeff;
-  --muted:   #7d77a8;
-  --grad:    linear-gradient(135deg, var(--cyan), var(--magenta));
-}
-
-*, *::before, *::after { box-sizing: border-box; }
-
 /* ─── SECTION ───────────────────────────────── */
 .cta-section {
   background: var(--bg);
-  padding: 100px 24px 120px;
+  padding: 80px 24px 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -68,13 +53,13 @@
 /* ─── HEADING ───────────────────────────────── */
 .cta-heading {
   font-family: 'Sora', sans-serif;
-  font-size: clamp(1.55rem, 4vw, 2.3rem);
+  font-size: clamp(1.55rem, 4vw, 2.5rem);
   font-weight: 800;
   color: var(--text);
   line-height: 1.2;
   letter-spacing: -0.03em;
-  max-width: 520px;
-  margin-bottom: 44px;
+  max-width: 560px;
+  margin-bottom: 40px;
   z-index: 1;
 }
 
@@ -119,6 +104,7 @@
   align-items: flex-start;
   gap: 2px;
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow:
     0 0 20px rgba(0,242,255,0.18),
     0 4px 20px rgba(0,0,0,0.45);
@@ -224,6 +210,7 @@
   justify-content: center;
   gap: 10px;
   z-index: 1;
+  max-width: 600px;
 }
 
 .cta-chip {
@@ -236,9 +223,10 @@
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 100px;
-  padding: 5px 13px;
+  padding: 5px 14px;
   opacity: 0;           /* GSAP reveals */
   transition: border-color 0.25s, color 0.25s;
+  cursor: default;
 }
 
 .cta-chip:hover {
@@ -247,3 +235,33 @@
 }
 
 .cta-chip-icon { font-size: 0.85rem; line-height: 1; }
+
+/* ─── DESKTOP ────────────────────────────────── */
+@media (min-width: 768px) {
+  .cta-section {
+    padding: 100px 32px 120px;
+  }
+
+  .cta-chart-wrap {
+    width: min(480px, 90vw);
+  }
+
+  .cta-heading {
+    margin-bottom: 44px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cta-section {
+    padding: 110px 3rem 130px;
+  }
+
+  .cta-chart-wrap {
+    width: min(540px, 80vw);
+  }
+
+  .cta-btn {
+    padding: 17px 40px;
+    font-size: 1.05rem;
+  }
+}
