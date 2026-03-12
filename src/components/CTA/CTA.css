@@ -18,6 +18,7 @@
   pointer-events: none;
   filter: blur(90px);
   opacity: 0.15;
+  will-change: transform;
 }
 .cta-glow--left  { top: 5%;    left: -120px; background: var(--cyan); }
 .cta-glow--right { bottom: 5%; right: -120px; background: var(--magenta); }
@@ -94,7 +95,7 @@
 /* ─── BADGE ─────────────────────────────────── */
 .cta-badge {
   position: absolute;
-  top: -12px; right: -8px;
+  top: -12px; left: -8px;
   background: rgba(14,11,30,0.92);
   border: 1px solid rgba(0,242,255,0.35);
   border-radius: 12px;
@@ -150,6 +151,7 @@
   border-radius: 14px;
   background: var(--grad);
   color: #fff;
+  text-decoration: none;
   font-family: 'Sora', sans-serif;
   font-size: 0.97rem;
   font-weight: 700;

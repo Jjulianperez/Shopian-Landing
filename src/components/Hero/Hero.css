@@ -131,6 +131,9 @@
   font-size: 1rem;
   color: white;
   cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
   box-shadow: 0 0 24px rgba(0,242,255,0.35), 0 4px 20px rgba(0,0,0,0.3);
   transition: transform 0.25s, box-shadow 0.25s;
   position: relative;
@@ -160,6 +163,9 @@
   background: transparent;
   border: 1px solid rgba(255,255,255,0.12);
   color: var(--text);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
   padding: .85rem 1.8rem;
   border-radius: 12px;
   font-family: 'Sora', sans-serif;
@@ -238,6 +244,7 @@
     transparent 70%);
   filter: blur(30px);
   animation: phone-glow-pulse 4s ease-in-out infinite alternate;
+  will-change: transform, opacity;
 }
 
 @keyframes phone-glow-pulse {
@@ -252,6 +259,7 @@
   z-index: 1;
   filter: drop-shadow(0 20px 60px rgba(0,242,255,0.3)) drop-shadow(0 0 40px rgba(204,0,255,0.2));
   animation: phone-float 6s ease-in-out infinite;
+  will-change: transform;
 }
 
 @keyframes phone-float {

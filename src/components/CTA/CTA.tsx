@@ -5,6 +5,8 @@ import "./CTA.css"
 
 gsap.registerPlugin(ScrollTrigger)
 
+const APP_URL = import.meta.env.VITE_APP_URL ?? "http://localhost:5174"
+
 // Bar heights as % of chart area (exponential growth)
 const BARS = [12, 22, 35, 50, 68, 88, 100]
 
@@ -21,7 +23,7 @@ const KNOTS = [
 
 export default function CTA() {
   const sectionRef  = useRef<HTMLElement>(null)
-  const btnRef      = useRef<HTMLButtonElement>(null)
+  const btnRef      = useRef<HTMLAnchorElement>(null)
   const featRef     = useRef<HTMLDivElement>(null)
   const chartRef    = useRef<HTMLDivElement>(null)
 
@@ -314,13 +316,13 @@ export default function CTA() {
       </p>
 
       {/* Button */}
-      <button className="cta-btn" ref={btnRef}>
+      <a href={`${APP_URL}/register`} className="cta-btn" ref={btnRef as React.RefObject<HTMLAnchorElement>}>
         <span className="cta-btn-shimmer" />
         <span className="cta-btn-text">Empezar gratis hoy</span>
         <svg className="cta-btn-arrow" viewBox="0 0 20 20" fill="none">
           <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
-      </button>
+      </a>
 
       {/* Chips */}
       <div className="cta-features" ref={featRef}>

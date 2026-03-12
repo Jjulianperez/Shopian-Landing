@@ -2,6 +2,8 @@ import { useState } from "react";
 import LogoShopian from "../../assets/LogoShopian.png";
 import "./Navbar.css";
 
+const APP_URL = import.meta.env.VITE_APP_URL ?? "http://localhost:5174"
+
 export default function Navbar() {
 
   const [open, setOpen] = useState(false);
@@ -30,8 +32,8 @@ export default function Navbar() {
 
       {/* ACTIONS */}
       <div className="nav-actions">
-        <button className="nav-login">Ingresar</button>
-        <button className="nav-cta">Crear tienda</button>
+        <a href={`${APP_URL}/login`} className="nav-login">Ingresar</a>
+        <a href={`${APP_URL}/register`} className="nav-cta">Crear tienda</a>
       </div>
 
       {/* HAMBURGER */}
@@ -50,8 +52,8 @@ export default function Navbar() {
         <a href="#pricing" onClick={()=>setOpen(false)}>Precios</a>
         <a href="#faq" onClick={()=>setOpen(false)}>FAQ</a>
 
-        <button className="nav-login">Ingresar</button>
-        <button className="nav-cta">Crear tienda</button>
+        <a href={`${APP_URL}/login`} className="nav-login" onClick={() => setOpen(false)}>Ingresar</a>
+        <a href={`${APP_URL}/register`} className="nav-cta" onClick={() => setOpen(false)}>Crear tienda</a>
       </div>
 
     </nav>

@@ -1,6 +1,8 @@
 import CelularImg from "../../assets/celular.png";
 import "./Hero.css";
 
+const APP_URL = import.meta.env.VITE_APP_URL ?? "http://localhost:5174"
+
 export default function Hero() {
   return (
     <section className="hero">
@@ -14,7 +16,7 @@ export default function Hero() {
 
           <div className="hero-badge">
             <span className="hero-badge-dot" />
-            <span>Lanzamiento 2025</span>
+            <span>Proximamente</span>
           </div>
 
           <h1 className="hero-title">
@@ -28,12 +30,12 @@ export default function Hero() {
           </p>
 
           <div className="hero-actions">
-            <button className="hero-cta">
+            <a href={`${APP_URL}/register`} className="hero-cta">
               Crear mi tienda →
-            </button>
-            <button className="hero-secondary">
-              Ver demo
-            </button>
+            </a>
+            <a href="#features" className="hero-secondary">
+              Ver cómo funciona
+            </a>
           </div>
 
           <div className="hero-stats">
@@ -62,6 +64,8 @@ export default function Hero() {
               src={CelularImg}
               alt="App Shopian en celular"
               className="hero-phone"
+              fetchPriority="high"
+              decoding="async"
             />
           </div>
         </div>

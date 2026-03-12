@@ -59,7 +59,12 @@ export default function Timeline() {
 
     const items    = gsap.utils.toArray<HTMLElement>(".tl-item", section)
     const lineWrap = section.querySelector<HTMLElement>(".tl-line-wrap")!
-    const lineH    = lineWrap.offsetHeight
+    const itemsEl  = section.querySelector<HTMLElement>(".tl-items")!
+
+    // Ajustar la altura de la línea al contenido real para que siempre llegue al último ítem
+    const neededHeight = itemsEl.offsetHeight + 20
+    lineWrap.style.height = `${neededHeight}px`
+    const lineH = neededHeight
 
     items.forEach((item) => {
       const icon     = item.querySelector<HTMLElement>(".tl-icon-wrap")!
@@ -195,7 +200,7 @@ export default function Timeline() {
                 <div className="tl-glow-burst" />
 
                 <div className="tl-icon-wrap">
-                  <img src={f.img} alt={f.title} className="tl-icon-img" loading="lazy" />
+                  <img src={f.img} alt={f.title} className="tl-icon-img" loading="lazy" decoding="async" />
                 </div>
 
                 <span className="tl-step-num">{f.step}</span>

@@ -1,6 +1,6 @@
 /* ─── FOOTER ────────────────────────────────── */
 .ft-footer {
-  background: #0a0817;
+  background: #07051a;
   position: relative;
   overflow: hidden;
 }
@@ -13,86 +13,83 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(0,242,255,0.6) 25%,
+    rgba(0,242,255,0.5) 20%,
     rgba(130,80,255,0.7) 50%,
-    rgba(204,0,255,0.6) 75%,
+    rgba(204,0,255,0.5) 80%,
     transparent 100%
   );
 }
 
 /* ─── INNER ─────────────────────────────────── */
 .ft-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 28px;
-  padding: 40px 24px 28px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  padding: 3.5rem 1.5rem 2rem;
+  max-width: 1200px;
+  margin-inline: auto;
 }
 
 @media (min-width: 640px) {
   .ft-inner {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    padding: 36px 40px 28px;
+    grid-template-columns: 1fr 1fr;
+    padding: 4rem 2.5rem 2.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .ft-inner {
-    padding: 40px 60px 32px;
-    max-width: 1280px;
-    margin: 0 auto;
-    width: 100%;
+    grid-template-columns: 2fr 1fr 1fr 1.4fr;
+    gap: 3rem;
+    padding: 4.5rem 4rem 3rem;
+    align-items: start;
   }
 }
 
-/* ─── LEFT: Shopian logo ────────────────────── */
-.ft-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-  cursor: pointer;
-}
-
-.ft-logo-icon {
-  font-size: 1.2rem;
-  line-height: 1;
-}
-
-.ft-logo-text {
+/* ─── COLUMN BASE ───────────────────────────── */
+.ft-col-title {
   font-family: 'Sora', sans-serif;
-  font-size: 1.45rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: #00f2ff;
-
-  text-shadow:
-    0 0 8px  rgba(0,242,255,0.9),
-    0 0 20px rgba(0,242,255,0.6),
-    0 0 40px rgba(0,242,255,0.3);
-
-  border-bottom: 2px solid #cc00ff;
-  padding-bottom: 2px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(240,238,255,0.35);
+  margin-bottom: 1.1rem;
 }
 
-/* ─── CENTER ────────────────────────────────── */
-.ft-center {
+/* ─── COL 1: Brand ──────────────────────────── */
+.ft-col--brand {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 14px;
-  text-align: center;
+  gap: 1rem;
 }
 
-.ft-tagline {
+.ft-brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.ft-brand-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(0,242,255,0.5));
+}
+
+.ft-brand-name {
+  height: 22px;
+  object-fit: contain;
+  filter: brightness(1.1);
+}
+
+.ft-brand-desc {
   font-family: 'DM Sans', sans-serif;
   font-size: 0.82rem;
-  color: #7d77a8;
-  letter-spacing: 0.01em;
-  white-space: nowrap;
+  line-height: 1.7;
+  color: rgba(240,238,255,0.42);
+  max-width: 280px;
 }
 
 /* ─── SOCIAL ────────────────────────────────── */
@@ -100,53 +97,86 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-top: 0.25rem;
 }
 
 .ft-social-btn {
   display: grid;
   place-items: center;
   width: 36px; height: 36px;
-  border-radius: 50%;
-  color: #7d77a8;
+  border-radius: 10px;
+  color: rgba(240,238,255,0.4);
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.07);
   text-decoration: none;
-  transition: color 0.22s, background 0.22s, border-color 0.22s, transform 0.22s, box-shadow 0.22s;
+  transition: color 0.2s, background 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 .ft-social-btn svg {
-  width: 15px; height: 15px;
-  flex-shrink: 0;
+  width: 16px; height: 16px;
 }
 
 .ft-social-btn:hover {
   color: #00f2ff;
   background: rgba(0,242,255,0.08);
-  border-color: rgba(0,242,255,0.35);
+  border-color: rgba(0,242,255,0.3);
   transform: translateY(-2px);
-  box-shadow: 0 0 12px rgba(0,242,255,0.25);
+  box-shadow: 0 0 14px rgba(0,242,255,0.2);
 }
 
-/* ─── RIGHT: Softian Solutions ─────────────── */
-.ft-softian {
+/* ─── NAV LINK LIST ─────────────────────────── */
+.ft-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.ft-link {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  color: rgba(240,238,255,0.5);
+  text-decoration: none;
+  transition: color 0.2s;
+  display: inline-block;
+}
+
+.ft-link:hover {
+  color: #f0eeff;
+}
+
+/* ─── COL 4: Softian ────────────────────────── */
+.ft-col--softian {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ft-softian-link {
+  display: inline-flex;
   align-items: center;
   gap: 10px;
-  flex-shrink: 0;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.03);
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  width: fit-content;
 }
 
-.ft-softian-icon {
-  width: 36px; height: 36px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, rgba(0,242,255,0.15), rgba(204,0,255,0.15));
-  border: 1px solid rgba(255,255,255,0.12);
-  display: grid;
-  place-items: center;
-  font-family: 'Sora', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 800;
-  color: #f0eeff;
-  box-shadow: 0 0 12px rgba(0,242,255,0.1);
+.ft-softian-link:hover {
+  border-color: rgba(204,0,255,0.3);
+  background: rgba(204,0,255,0.05);
+  box-shadow: 0 0 20px rgba(204,0,255,0.1);
+}
+
+.ft-softian-logo {
+  width: 32px; height: 32px;
+  object-fit: contain;
+  border-radius: 7px;
 }
 
 .ft-softian-text {
@@ -157,7 +187,7 @@
 
 .ft-softian-name {
   font-family: 'Sora', sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: #f0eeff;
   letter-spacing: -0.01em;
@@ -165,11 +195,19 @@
 
 .ft-softian-sub {
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.58rem;
+  font-size: 0.55rem;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #7d77a8;
+  color: rgba(240,238,255,0.35);
+}
+
+.ft-softian-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: rgba(240,238,255,0.35);
+  max-width: 200px;
 }
 
 /* ─── BOTTOM BAR ────────────────────────────── */
@@ -177,25 +215,36 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  gap: 6px 10px;
-  padding: 14px 24px 20px;
-  border-top: 1px solid rgba(255,255,255,0.07);
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding: 1.1rem 1.5rem 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.7rem;
-  color: #4e4970;
+  font-size: 0.72rem;
+  color: rgba(240,238,255,0.2);
+  max-width: 1200px;
+  margin-inline: auto;
+  width: 100%;
 }
 
-.ft-bottom-sep {
-  opacity: 0.4;
+@media (min-width: 1024px) {
+  .ft-bottom {
+    padding: 1.1rem 4rem 1.5rem;
+  }
 }
+
+.ft-bottom-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ft-bottom-sep { opacity: 0.4; }
 
 .ft-bottom-link {
-  color: #5e5888;
+  color: rgba(240,238,255,0.28);
   text-decoration: none;
   transition: color 0.2s;
 }
 
-.ft-bottom-link:hover {
-  color: #00f2ff;
-}
+.ft-bottom-link:hover { color: #00f2ff; }

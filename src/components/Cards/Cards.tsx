@@ -2,7 +2,7 @@ import "./Cards.css";
 
 export default function Cards() {
   return (
-    <section className="features">
+    <section className="features" id="features">
       <div className="features-inner">
 
       <p className="features-label">¿Por qué Shopian?</p>
