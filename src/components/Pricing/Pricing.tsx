@@ -27,8 +27,8 @@ const PLANS = [
   {
     id: "pro",
     name: "Pro",
-    price: "$15",
-    period: "/ mes",
+    price: "$15.000",
+    period: "ARS / mes",
     highlight: true,
     badge: "Más popular",
     features: [
@@ -45,8 +45,8 @@ const PLANS = [
   {
     id: "business",
     name: "Business",
-    price: "$29",
-    period: "/ mes",
+    price: "$29.000",
+    period: "ARS / mes",
     highlight: false,
     badge: null,
     features: [
